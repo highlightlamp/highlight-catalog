@@ -255,8 +255,8 @@ function openModal(idx){
   const featEl=document.getElementById('modal-features');
   featEl.innerHTML=p.features?p.features.map(f=>`<li>${f}</li>`).join(''):'';
   const subj=encodeURIComponent('Product Enquiry: '+p.name);
-  const body=encodeURIComponent('Hi Highlight Team,\n\nI\'m interested in:\n\n'+p.name+'\nPrice: NZ$'+p.price+'\n\nPlease send more details / wholesale pricing.\n\nThank you.');
-  document.getElementById('modal-email-btn').href='mailto:'+CONTACT_EMAIL+'?subject='+subj+'&body='+body;
+  document.getElementById('modal-email-btn').href='mailto:'+CONTACT_EMAIL+'?subject='+subj;
+  document.getElementById('modal-email-btn').target='_blank';
   const waText=encodeURIComponent('Hi! I\'m interested in: '+p.name+' (NZ$'+p.price+'). Can you send more info?');
   document.getElementById('modal-whatsapp-btn').href='https://wa.me/'+WHATSAPP_NUM+'?text='+waText;
   document.getElementById('modal').classList.add('open');
