@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Lamps — Product Catalogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --warm-white: #f5f0e8;
+    --charcoal: #1c1a17;
+    --mid: #4a4540;
+    --light: #9a9088;
+    --gold: #b8955a;
+    --gold-light: #d4b07a;
+    --gold-pale: #f0e4ce;
+    --accent: #7a3f2e;
+    --card-bg: #ffffff;
+    --border: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--charcoal);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-tagline {
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .enquire-btn-header {
+    background: var(--gold);
+    color: white;
+    padding: 0.5rem 1.4rem;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .enquire-btn-header:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--charcoal);
+    padding: 5rem 5vw 4rem;
+    border-bottom: 1px solid #2e2c28;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(184,149,90,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 700px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: #f0ece4;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero p {
+    color: var(--light);
+    font-size: 0.95rem;
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 0.75rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .hero-cta:hover {
+    background: var(--gold);
+    color: white;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2e2c28;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* ── WHOLESALE BANNER ── */
+  .wholesale-banner {
+    background: var(--gold-pale);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .wholesale-banner p {
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+  .wholesale-banner strong { color: var(--charcoal); font-weight: 500; }
+
+  .wb-contact {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .wb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .wb-link:hover { text-decoration: underline; }
+
+  /* ── FILTER BAR ── */
+  .filter-section {
+    padding: 2rem 5vw 0;
+    background: var(--cream);
+  }
+
+  .filter-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.8rem;
+  }
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--mid);
+    padding: 0.45rem 1.1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+  }
+
+  /* ── PRODUCT GRID ── */
+  .catalogue-section {
+    padding: 2rem 5vw 5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--charcoal);
+  }
+
+  .product-count {
+    font-size: 0.78rem;
+    color: var(--light);
+    letter-spacing: 0.1em;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ── PRODUCT CARD ── */
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: default;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(28,26,23,0.12);
+    border-color: var(--gold-pale);
+  }
+
+  .product-card.hidden { display: none; }
+
+  .product-img-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--warm-white);
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .category-tag {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    background: rgba(28,26,23,0.75);
+    color: var(--gold-light);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .product-info {
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--charcoal);
+    margin-bottom: 0.7rem;
+    min-height: 2.7rem;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .price-sale {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .price-original {
+    font-size: 0.82rem;
+    color: var(--light);
+    text-decoration: line-through;
+  }
+
+  .save-badge {
+    font-size: 0.65rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.15rem 0.45rem;
+    letter-spacing: 0.05em;
+    border-radius: 1px;
+    font-weight: 500;
+  }
+
+  .card-enquire {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--mid);
+    padding: 0.55rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .card-enquire:hover {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+  }
+
+  /* ── CONTACT SECTION ── */
+  .contact-section {
+    background: var(--charcoal);
+    padding: 4rem 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 700px) {
+    .contact-section { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { gap: 1.5rem; }
+    .header-tagline { display: none; }
+  }
+
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #f0ece4;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .contact-left h2 em { font-style: italic; color: var(--gold-light); }
+
+  .contact-left p {
+    color: var(--light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 400px;
+  }
+
+  .contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid #2e2c28;
+    background: rgba(255,255,255,0.03);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .contact-item:hover { border-color: var(--gold); }
+
+  .contact-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+
+  .contact-text strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-text span {
+    font-size: 0.9rem;
+    color: #c0bab0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #131210;
+    padding: 1.5rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer p {
+    font-size: 0.72rem;
+    color: #4a4540;
+    letter-spacing: 0.08em;
+  }
+
+  footer a {
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .product-card {
+    animation: fadeUp 0.4s ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">Highlight</a>
+  <div class="header-right">
+    <span class="header-tagline">NZ Local Stock · 2–5 Day Delivery</span>
+    <a href="mailto:info@highlightlamp.co.nz" class="enquire-btn-header">Wholesale Enquiry</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Decorative Lighting · New Zealand</p>
+    <h1>Where <em>Light</em> Becomes<br>a Work of Art</h1>
+    <p>Curated decorative lamps — Tiffany stained glass, vintage French pastoral, cordless crystal, and handcrafted ceramic. All held in local NZ stock, ready to ship in 2–5 business days.</p>
+    <a href="#catalogue" class="hero-cta">Browse Full Catalogue ↓</a>
+    <div class="hero-stats">
+      <div><span class="stat-num">37+</span><span class="stat-label">Products</span></div>
+      <div><span class="stat-num">4</span><span class="stat-label">Collections</span></div>
+      <div><span class="stat-num">NZ</span><span class="stat-label">Local Stock</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHOLESALE BANNER -->
+<div class="wholesale-banner">
+  <p><strong>Wholesale & Retail Enquiries Welcome</strong> — Contact us for bulk pricing and stockist arrangements</p>
+  <div class="wb-contact">
+    <a href="mailto:info@highlightlamp.co.nz" class="wb-link">✉ info@highlightlamp.co.nz</a>
+    <a href="https://highlightlamp.co.nz/pages/contact" class="wb-link" target="_blank">Contact Form →</a>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-section" id="catalogue">
+  <p class="filter-label">Filter by Collection</p>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All Products</button>
+    <button class="filter-btn" onclick="filterProducts('cordless', this)">Cordless Lighting</button>
+    <button class="filter-btn" onclick="filterProducts('tiffany', this)">Tiffany Stained Glass</button>
+    <button class="filter-btn" onclick="filterProducts('french', this)">Vintage &amp; French</button>
+    <button class="filter-btn" onclick="filterProducts('ceramic', this)">Retro Ceramic</button>
+    <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
+  </div>
+</div>
+
+<!-- CATALOGUE -->
+<section class="catalogue-section">
+  <div class="section-header">
+    <h2 class="section-title">Product Catalogue</h2>
+    <span class="product-count" id="count-label">37 products</span>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="contact-left">
+    <h2>Ready to <em>Stock</em><br>These Pieces?</h2>
+    <p>We welcome wholesale enquiries from retailers, interior designers, and hospitality buyers across New Zealand. All products are held in local NZ stock with fast fulfilment.</p>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:info@highlightlamp.co.nz" class="contact-item">
+      <div class="contact-icon">✉</div>
+      <div class="contact-text">
+        <strong>Email Us</strong>
+        <span>info@highlightlamp.co.nz</span>
+      </div>
+    </a>
+    <a href="https://highlightlamp.co.nz/pages/contact" target="_blank" class="contact-item">
+      <div class="contact-icon">📋</div>
+      <div class="contact-text">
+        <strong>Online Enquiry Form</strong>
+        <span>highlightlamp.co.nz/pages/contact</span>
+      </div>
+    </a>
+    <a href="https://highlightlamp.co.nz" target="_blank" class="contact-item">
+      <div class="contact-icon">🛒</div>
+      <div class="contact-text">
+        <strong>Shop Online</strong>
+        <span>highlightlamp.co.nz — Retail Orders</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Highlight Lamps · New Zealand</p>
+  <a href="https://highlightlamp.co.nz" target="_blank">highlightlamp.co.nz</a>
+</footer>
+
+<script>
+const products = [
+  {
+    name: "Highlight Portable Crystal LED Table Lamp – Touch Control",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 59,
+    originalPrice: 89,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20250221114044.jpg?v=1740687707&width=600",
+    url: "https://highlightlamp.co.nz/products/portable-crystal-night-light-led-table-lamp-touch-control"
+  },
+  {
+    name: "Highlight Portable LED Crystal Lantern Lamp – Touch Control – Gold",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 59,
+    originalPrice: 89,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5492.heic?v=1766185972&width=600",
+    url: "https://highlightlamp.co.nz/products/portable-crystal-lantern-table-lamp-touch-control-led"
+  },
+  {
+    name: "Highlight Portable Prism LED Table Lamp – Touch Control – Wireless Gold",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 59,
+    originalPrice: 89,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/22.jpg?v=1761136388&width=600",
+    url: "https://highlightlamp.co.nz/products/portable-prism-table-lamp-touch-control-led"
+  },
+  {
+    name: "Highlight 3D Jellyfish Crystal Ball Night Light – Cordless & Child-Safe",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 69,
+    originalPrice: 100,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5452.heic?v=1766032580&width=600",
+    url: "https://highlightlamp.co.nz/products/3d-jellyfish-crystal-ball-lamp-cordless-child-safe-night-light"
+  },
+  {
+    name: "Highlight 16-Colour RGB Crystal Table Lamp – Cordless & Touch – Modern",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: 65,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5496.heic?v=1772507971&width=600",
+    url: "https://highlightlamp.co.nz/products/16-colour-rgb-cordless-touch-modern-fluted-crystal-table-lamp"
+  },
+  {
+    name: "Highlight Tower Crystal LED Table Lamp – 16-Colour RGB – Cordless & Touch",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: 65,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20251220144227_292_1.jpg?v=1766195204&width=600",
+    url: "https://highlightlamp.co.nz/products/16-colour-rgb-cordless-touch-tower-crystal-diamond-table-lamp"
+  },
+  {
+    name: "16-Colour RGB Cordless Touch Crystal Diamond Table Lamp",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 39,
+    originalPrice: null,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5448.heic?v=1766033392&width=600",
+    url: "https://highlightlamp.co.nz/products/16-colour-rgb-cordless-touch-crystal-diamond-table-lamp-1"
+  },
+  {
+    name: "Highlight Cordless LED Flower Table Lamp – Touch Dimmable & Rechargeable",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 59,
+    originalPrice: null,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5488.heic?v=1766184240&width=600",
+    url: "https://highlightlamp.co.nz/products/cordless-led-flower-table-lamp-touch-dimmable-rechargeable"
+  },
+  {
+    name: "Highlight Vintage Pleated LED Table Lamp – Cordless & Rechargeable – Gold",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: 65,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/IMG_5443.heic?v=1766183568&width=600",
+    url: "https://highlightlamp.co.nz/products/vintage-pleated-cordless-table-lamp"
+  },
+  {
+    name: "Highlight Rechargeable Double-Pole LED Table Lamp – Touch Control – Black",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: 65,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20251005173554_229_1.jpg?v=1759641296&width=600",
+    url: "https://highlightlamp.co.nz/products/rechargable-touch-control-led-table-lamp-night-lamp"
+  },
+  {
+    name: "Highlight European Style LED Table Lamp – Touch Control – Gold & White",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: 65,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/3_07211da3-f5fb-4bec-bd5f-ed7710c9d8bd.jpg?v=1761136681&width=600",
+    url: "https://highlightlamp.co.nz/products/elegant-touch-dimmable-table-lamp-luxurious-ambiance-meets-smart-functionality"
+  },
+  {
+    name: "LumiGlow Table Lamp Touch Control LED",
+    category: "cordless",
+    categoryLabel: "Cordless Lighting",
+    price: 49,
+    originalPrice: null,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1.jpg?v=1761136622&width=600",
+    url: "https://highlightlamp.co.nz/products/lumiglow-trio-collection-diamond-double-layer-petal-table-lamps-elegant-usb-touch-lighting-for-every-mood"
+  },
+  // Tiffany
+  {
+    name: "Highlight Tiffany Sunflower Stained Glass Table Lamp – Handcrafted – 20cm",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241123144619_1.png?v=1733539449&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque-style-table-lamp-with-handcrafted-colored-glass-shade-tiffany-lamp-sunflower"
+  },
+  {
+    name: "Highlight Tiffany Dragonfly Stained Glass Table Lamp – Handcrafted – 20cm",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241129181423_a40a52f2-8884-4d22-b155-f4c764791bed.jpg?v=1732857656&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque"
+  },
+  {
+    name: "Tiffany Rose Handcrafted Stained Glass Table Lamp LED",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/03_9c9ad907-4a84-40b0-937e-3d0f10367bd6.jpg?v=1732139944&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque-style-table-lamp-with-handcrafted-colored-glass-shade-tiffany-lamp-rose"
+  },
+  {
+    name: "Tiffany Grape Handcrafted Stained Glass Table Lamp",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/03_92be9abf-0a28-440d-8385-1b46ea510977.jpg?v=1732139977&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque-style-table-lamp-with-handcrafted-colored-glass-shade-tiffany-lamp-rose-grape"
+  },
+  {
+    name: "Tiffany Morning-Glory Handcrafted Stained Glass Table Lamp LED",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/07-2.jpg?v=1732328472&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque-style-table-lamp-with-handcrafted-colored-glass-shade-tiffany-lamp-morning-glory"
+  },
+  {
+    name: "Tiffany Curved Handcrafted Stained Glass Desk Table Lamp LED",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/02_6e4c4e86-a7ef-414e-a9af-609442684b3c.jpg?v=1732328388&width=600",
+    url: "https://highlightlamp.co.nz/products/baroque-style-table-lamp-with-handcrafted-colored-glass-shade-tiffany-lamp-alloy-base"
+  },
+  {
+    name: "Handcrafted Green Glass Petal Table Lamp",
+    category: "tiffany",
+    categoryLabel: "Tiffany Stained Glass",
+    price: 169,
+    originalPrice: null,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241227111555.jpg?v=1735251382&width=600",
+    url: "https://highlightlamp.co.nz/products/equisite-tiffany-lamp-bedside-table-lamp-antique-deco-gift"
+  },
+  // Vintage & French
+  {
+    name: "French Vintage Wooden Desk / Bedside Table Lamp LED",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 195,
+    originalPrice: 260,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/2024-11-19140104_8.jpg?v=1731989018&width=600",
+    url: "https://highlightlamp.co.nz/products/vintage-wood-table-lamp-pleated-shade-lamp"
+  },
+  {
+    name: "Highlight Retro Minimalist LED Desk Lamp – Wood & Gold",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 99,
+    originalPrice: 130,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241119164841.jpg?v=1731988336&width=600",
+    url: "https://highlightlamp.co.nz/products/vintage-minimalist-table-lamp"
+  },
+  {
+    name: "Highlight French Petal LED Desk Lamp – Cream White",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 69,
+    originalPrice: 100,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/2024-11-19_155956_3.jpg?v=1731987088&width=600",
+    url: "https://highlightlamp.co.nz/products/french-chanel-style-table-lamp-petal-shaped-shade-lamp"
+  },
+  {
+    name: "French Minimalism Desk / Bedside Table Lamp LED",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 129,
+    originalPrice: 170,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241121210509.jpg?v=1732176404&width=600",
+    url: "https://highlightlamp.co.nz/products/french-chanel-style-table-lamp"
+  },
+  {
+    name: "Highlight French Pastoral Pleated Bedside Lamp – Cream Style – White",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 59,
+    originalPrice: 89,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/4acb1b88d3fe0149a5a7eb23ddf98a99_e9e7e8d7-3164-47b6-9259-d9957b116975.jpg?v=1737334273&width=600",
+    url: "https://highlightlamp.co.nz/products/french-countryside-table-lamp-pleasted-shade-lamp-night-light-beige"
+  },
+  {
+    name: "Highlight French Pastoral Flower Pleated Lamp – Natural Wood",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 59,
+    originalPrice: 89,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241227100629_e309d32c-f700-4a3c-9a6e-136a3ab0dc9c.jpg?v=1735247375&width=600",
+    url: "https://highlightlamp.co.nz/products/french-countryside-table-lamp-pleasted-shade-lamp-night-light-floral"
+  },
+  {
+    name: "Highlight French Pastoral Slim Bedside Lamp – Pleated – Wood Finish",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 69,
+    originalPrice: 95,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/2024-11-19_155956_14.jpg?v=1731986022&width=600",
+    url: "https://highlightlamp.co.nz/products/french-countryside-table-lamp-pleasted-shade-lamp-night-light-floral-cylinder"
+  },
+  {
+    name: "French Pastoral Wood Style Bedside Table Lamp – Pleated Night Light LED",
+    category: "french",
+    categoryLabel: "Vintage & French",
+    price: 59,
+    originalPrice: 85,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/2024-11-19140104_17.jpg?v=1731986599&width=600",
+    url: "https://highlightlamp.co.nz/products/french-countryside-table-lamp-pleasted-shade-lamp-night-light-flax"
+  },
+  // Ceramic
+  {
+    name: "Luxury Cloisonné Jar Ceramic Table Lamp – Art Deco LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 199,
+    originalPrice: null,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20250228103744_e4e57fde-8bef-444f-89e1-7765e4539cd7.jpg?v=1740693115&width=600",
+    url: "https://highlightlamp.co.nz/products/luxury-cloisonne-jar-ceramic-table-lamp-art-deco-led"
+  },
+  {
+    name: "Retro Hand-Painted Ceramic White Desk Bedside Table Lamp LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 159,
+    originalPrice: 200,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241122102629.jpg?v=1732224856&width=600",
+    url: "https://highlightlamp.co.nz/products/american-retro-table-lamp-hand-painted-ceramic-lamp-floral-bird-white"
+  },
+  {
+    name: "Retro Hand-Painted Ceramic Green Desk Bedside Table Lamp LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 159,
+    originalPrice: 200,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1600X1600-_01_ee50439d-43fe-4462-be19-17b90e97ddc1.jpg?v=1732141620&width=600",
+    url: "https://highlightlamp.co.nz/products/american-retro-table-lamp-hand-painted-ceramic-lamp-floral-bird"
+  },
+  {
+    name: "Retro Hand-Painted Ceramic Light-Green Desk Bedside Table Lamp LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 159,
+    originalPrice: 200,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1500X1500-_04_c37e9716-7203-43f2-9250-071e6c3147c5.jpg?v=1732141680&width=600",
+    url: "https://highlightlamp.co.nz/products/american-retro-table-lamp-hand-painted-ceramic-lamp-floral-bird-beige"
+  },
+  {
+    name: "Retro Hand-Painted Ceramic Yellow Desk Bedside Table Lamp LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 159,
+    originalPrice: 200,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1600X1600-_01_bae3d257-2ada-419a-80cb-29a6c40ec02e.jpg?v=1732141754&width=600",
+    url: "https://highlightlamp.co.nz/products/american-retro-table-lamp-hand-painted-ceramic-lamp-floral-and-bird"
+  },
+  {
+    name: "Ceramic Bedside Table Lamp – Mermaid LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 149,
+    originalPrice: 179,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1500X1500-_02_3cd0cb75-9e28-4572-aae8-7469d42a568d.jpg?v=1732141863&width=600",
+    url: "https://highlightlamp.co.nz/products/american-retro-table-lamp-ceramic-lamp-mermaid-shaped-white-gold"
+  },
+  {
+    name: "French Elegant Ceramic Desk / Bedside Table Lamp – Black LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 129,
+    originalPrice: 160,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/1500X1500-_02_c82062f1-16f0-4af6-a040-2b8f5703c4ec.jpg?v=1732140137&width=600",
+    url: "https://highlightlamp.co.nz/products/chanel-style-ceremic-table-lamp-pleated-shade-lamp-black"
+  },
+  {
+    name: "French Elegant Ceramic Desk / Bedside Table Lamp – White LED",
+    category: "ceramic",
+    categoryLabel: "Retro Ceramic",
+    price: 129,
+    originalPrice: 160,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241121110555.jpg?v=1732140443&width=600",
+    url: "https://highlightlamp.co.nz/products/chanel-style-ceremic-table-lamp-pleated-shade-lamp-white"
+  },
+  // Accessories
+  {
+    name: "Highlight Christmas Pleated Lampshade – Limited Edition – Red Floral",
+    category: "accessories",
+    categoryLabel: "Accessories",
+    price: 25,
+    originalPrice: 35,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/20241116174645.jpg?v=1731732455&width=600",
+    url: "https://highlightlamp.co.nz/products/lampshade-christmas-limited-edition"
+  },
+  {
+    name: "Highlight RGB LED Strip Light – 5-Metre with Remote Control – Multi-Colour",
+    category: "accessories",
+    categoryLabel: "Accessories",
+    price: 39,
+    originalPrice: 49,
+    img: "https://highlightlamp.co.nz/cdn/shop/files/81C7bAgAsML._AC_SL1500.jpg?v=1731996638&width=600",
+    url: "https://highlightlamp.co.nz/products/led-strip-lights-5050rgb-with-remote-control"
+  }
+];
+
+function calcSave(original, sale) {
+  if (!original) return null;
+  return Math.round((1 - sale / original) * 100);
+}
+
+function renderCards(filter) {
+  const grid = document.getElementById('product-grid');
+  const label = document.getElementById('count-label');
+  grid.innerHTML = '';
+
+  const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+  label.textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+
+  filtered.forEach((p, i) => {
+    const save = calcSave(p.originalPrice, p.price);
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.style.animationDelay = `${i * 0.04}s`;
+    card.innerHTML = `
+      <div class="product-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+        <span class="category-tag">${p.categoryLabel}</span>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="price-row">
+          <span class="price-sale">NZ$${p.price}</span>
+          ${p.originalPrice ? `<span class="price-original">NZ$${p.originalPrice}</span>` : ''}
+          ${save ? `<span class="save-badge">−${save}%</span>` : ''}
+        </div>
+        <a href="${p.url}" target="_blank" class="card-enquire">View Details →</a>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(cat);
+}
+
+renderCards('all');
+</script>
+</body>
+</html>
