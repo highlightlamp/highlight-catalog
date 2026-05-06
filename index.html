@@ -88,9 +88,9 @@ header{background:var(--charcoal);padding:0 5vw;display:flex;align-items:center;
 .contact-left h2 em{font-style:italic;color:var(--gold-light)}
 .contact-left p{color:var(--light);font-size:.9rem;line-height:1.8;max-width:400px}
 .contact-right{display:flex;flex-direction:column;gap:1.2rem}
-.contact-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;border:1px solid #2e2c28;background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .2s}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;border:1px solid #2e2c28;background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .2s;cursor:pointer;position:relative;z-index:1}
 .contact-item:hover{border-color:var(--gold)}
-.contact-icon{font-size:1.3rem;line-height:1;margin-top:.1rem}
+.contact-icon{font-size:1.3rem;line-height:1;margin-top:.1rem;min-width:1.5rem}
 .contact-text strong{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light);font-weight:500;margin-bottom:.2rem}
 .contact-text span{font-size:.9rem;color:#c0bab0}
 footer{background:#131210;padding:1.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
@@ -152,14 +152,14 @@ footer a{font-size:.72rem;color:var(--gold);text-decoration:none;letter-spacing:
     <p style="margin-top:1rem;color:var(--light);font-size:.88rem;line-height:1.8;">Every piece is ethically sourced, rigorously quality-checked, and held in local NZ stock — ensuring fast, reliable fulfilment for your business.</p>
   </div>
   <div class="contact-right">
-    <a href="mailto:info@highlightlamp.co.nz" class="contact-item">
+    <div class="contact-item" onclick="window.location='mailto:info@highlightlamp.co.nz'" style="cursor:pointer">
       <div class="contact-icon">✉</div>
       <div class="contact-text"><strong>Email Us</strong><span>info@highlightlamp.co.nz</span></div>
-    </a>
-    <a href="mailto:info@highlightlamp.co.nz?subject=Wholesale%20Enquiry" class="contact-item">
+    </div>
+    <div class="contact-item" onclick="window.location='mailto:info@highlightlamp.co.nz?subject=Wholesale%20Enquiry'" style="cursor:pointer">
       <div class="contact-icon">📦</div>
       <div class="contact-text"><strong>Wholesale / Bulk Order</strong><span>Contact us for trade pricing</span></div>
-    </a>
+    </div>
     <a href="https://wa.me/64212879008" target="_blank" class="contact-item">
       <div class="contact-icon">💬</div>
       <div class="contact-text"><strong>WhatsApp</strong><span>+64 21 287 9008 — Quick quotes &amp; product questions</span></div>
@@ -256,7 +256,6 @@ function openModal(idx){
   featEl.innerHTML=p.features?p.features.map(f=>`<li>${f}</li>`).join(''):'';
   const subj=encodeURIComponent('Product Enquiry: '+p.name);
   document.getElementById('modal-email-btn').href='mailto:'+CONTACT_EMAIL+'?subject='+subj;
-  document.getElementById('modal-email-btn').target='_blank';
   const waText=encodeURIComponent('Hi! I\'m interested in: '+p.name+' (NZ$'+p.price+'). Can you send more info?');
   document.getElementById('modal-whatsapp-btn').href='https://wa.me/'+WHATSAPP_NUM+'?text='+waText;
   document.getElementById('modal').classList.add('open');
