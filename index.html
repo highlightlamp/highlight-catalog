@@ -152,14 +152,14 @@ footer a{font-size:.72rem;color:var(--gold);text-decoration:none;letter-spacing:
     <p style="margin-top:1rem;color:var(--light);font-size:.88rem;line-height:1.8;">Every piece is ethically sourced, rigorously quality-checked, and held in local NZ stock — ensuring fast, reliable fulfilment for your business.</p>
   </div>
   <div class="contact-right">
-    <div class="contact-item" onclick="window.location='mailto:info@highlightlamp.co.nz'" style="cursor:pointer">
+    <a href="mailto:info@highlightlamp.co.nz" class="contact-item">
       <div class="contact-icon">✉</div>
       <div class="contact-text"><strong>Email Us</strong><span>info@highlightlamp.co.nz</span></div>
-    </div>
-    <div class="contact-item" onclick="window.location='mailto:info@highlightlamp.co.nz?subject=Wholesale%20Enquiry'" style="cursor:pointer">
+    </a>
+    <a href="mailto:info@highlightlamp.co.nz?subject=Wholesale%20Enquiry" class="contact-item">
       <div class="contact-icon">📦</div>
       <div class="contact-text"><strong>Wholesale / Bulk Order</strong><span>Contact us for trade pricing</span></div>
-    </div>
+    </a>
     <a href="https://wa.me/64212879008" target="_blank" class="contact-item">
       <div class="contact-icon">💬</div>
       <div class="contact-text"><strong>WhatsApp</strong><span>+64 21 287 9008 — Quick quotes &amp; product questions</span></div>
@@ -187,8 +187,8 @@ footer a{font-size:.72rem;color:var(--gold);text-decoration:none;letter-spacing:
       <div class="modal-desc" id="modal-desc"></div>
       <ul class="modal-features" id="modal-features"></ul>
       <div class="modal-actions">
-        <a id="modal-whatsapp-btn" href="#" class="modal-btn-primary">💬 WhatsApp Enquiry</a>
-        <a id="modal-email-btn" href="#" class="modal-btn-secondary">✉ Send Email Enquiry</a>
+        <button id="modal-whatsapp-btn" class="modal-btn-primary" onclick="window.open(this.dataset.href,'_blank')">💬 WhatsApp Enquiry</button>
+        <button id="modal-email-btn" class="modal-btn-secondary" onclick="window.location.href=this.dataset.href">✉ Send Email Enquiry</button>
       </div>
     </div>
   </div>
@@ -255,9 +255,9 @@ function openModal(idx){
   const featEl=document.getElementById('modal-features');
   featEl.innerHTML=p.features?p.features.map(f=>`<li>${f}</li>`).join(''):'';
   const subj=encodeURIComponent('Product Enquiry: '+p.name);
-  document.getElementById('modal-email-btn').href='mailto:'+CONTACT_EMAIL+'?subject='+subj;
+  document.getElementById('modal-email-btn').dataset.href='mailto:'+CONTACT_EMAIL+'?subject='+subj;
   const waText=encodeURIComponent('Hi! I\'m interested in: '+p.name+' (NZ$'+p.price+'). Can you send more info?');
-  document.getElementById('modal-whatsapp-btn').href='https://wa.me/'+WHATSAPP_NUM+'?text='+waText;
+  document.getElementById('modal-whatsapp-btn').dataset.href='https://wa.me/'+WHATSAPP_NUM+'?text='+waText;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
